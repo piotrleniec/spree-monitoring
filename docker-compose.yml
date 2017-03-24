@@ -2,3 +2,8 @@ version: '3'
 services:
   database:
     image: postgres:9.6.2
+  shop:
+    build:
+      context: shop
+    ports:
+      - 3000:3000
