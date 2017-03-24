@@ -1,6 +1,6 @@
 base: &base
   adapter: postgresql
-  host: database
+  host: localhost
   username: postgres
 
 development:
@@ -11,3 +11,4 @@ test:
 
 production:
   <<: *base
+  host: database
