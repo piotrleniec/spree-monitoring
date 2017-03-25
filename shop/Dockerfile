@@ -13,5 +13,8 @@ RUN bundle
 
 COPY . .
 
+RUN rails assets:precompile RAILS_ENV=build
+RUN rm -f db/build.sqlite3
+
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["rails", "s", "-b", "0.0.0.0"]

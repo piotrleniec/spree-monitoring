@@ -9,8 +9,4 @@ if [ ! -f database_initialized ]; then
     && touch database_initialized
 fi
 
-if [ ! -f assets_precompiled ]; then
-  rails assets:precompile && touch assets_precompiled
-fi
-
 exec "$@"

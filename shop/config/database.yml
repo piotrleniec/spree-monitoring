@@ -12,3 +12,7 @@ test:
 production:
   <<: *base
   host: database
+
+build:
+  adapter: sqlite3
+  database: db/build.sqlite3
