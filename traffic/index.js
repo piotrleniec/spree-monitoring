@@ -2,6 +2,8 @@ const Nightmare = require('nightmare')
 
 const nightmare = Nightmare()
 const crawl = url => {
+  console.log(url)
+
   nightmare
     .goto(url)
     .evaluate(() => {
@@ -10,11 +12,7 @@ const crawl = url => {
 
       return urls[Math.floor(Math.random() * urls.length)]
     })
-    .then(url => {
-      console.log(url)
-
-      return Promise.resolve(url || 'http://localhost:3000')
-    })
+    .then(url => Promise.resolve(url || 'http://localhost:3000'))
     .then(crawl)
 }
 
