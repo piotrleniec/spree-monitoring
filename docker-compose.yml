@@ -24,3 +24,9 @@ services:
       - elasticsearch
     volumes:
       - logs:/log
+  kibana:
+    image: docker.elastic.co/kibana/kibana:5.2.2
+    environment:
+      XPACK_SECURITY_ENABLED: 'false'
+    ports:
+      - 5601:5601
