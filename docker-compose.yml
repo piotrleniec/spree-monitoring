@@ -1,4 +1,6 @@
 version: '3'
+volumes:
+  logs:
 services:
   database:
     image: postgres:9.6.2
@@ -7,5 +9,12 @@ services:
       context: shop
     depends_on:
       - database
+    volumes:
+      - logs:/log
     ports:
       - 3000:3000
+  logstash:
+    build:
+      context: logstash
+    volumes:
+      - logs:/log
