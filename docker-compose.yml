@@ -5,5 +5,7 @@ services:
   shop:
     build:
       context: shop
+    depends_on:
+      - database
     ports:
       - 3000:3000

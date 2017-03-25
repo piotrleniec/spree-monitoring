@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sleep 1
-
 if [ ! -f database_initialized ]; then
   rails db:migrate \
     && rails db:seed AUTO_ACCEPT=1 \
