@@ -13,4 +13,5 @@ RUN bundle
 
 COPY . .
 
-CMD ["./docker-entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
+CMD ["rails", "s", "-b", "0.0.0.0"]
