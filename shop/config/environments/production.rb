@@ -88,4 +88,10 @@ Rails.application.configure do
   config.logger.formatter = -> (_, _, _, message) { "#{message}\n" }
   config.lograge.enabled = true
   config.lograge.formatter = Lograge::Formatters::Json.new
+  config.lograge.custom_options = -> event do
+    {
+      type: :traffic,
+      track: event.payload[:track]
+    }
+  end
 end
