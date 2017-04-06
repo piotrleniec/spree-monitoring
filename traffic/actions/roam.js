@@ -1,6 +1,6 @@
 const nightmare = require('../nightmare')
 
-module.exports = ({ url = 'http://localhost:3000', pageCount = 1 } = {}) => {
+const roam = ({ url = 'http://localhost:3000', pageCount } = {}) => {
   const promise = nightmare
     .goto(url)
     .evaluate(() => {
@@ -13,3 +13,5 @@ module.exports = ({ url = 'http://localhost:3000', pageCount = 1 } = {}) => {
 
   return pageCount > 1 ? promise.then(roam) : promise
 }
+
+module.exports = () => roam({ pageCount: 1 + Math.floor(10 * Math.random()) })

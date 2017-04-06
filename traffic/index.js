@@ -1,16 +1,13 @@
 const nightmare = require('./nightmare')
-const roam = require('./actions/roam')
-const addProductToCart = require('./actions/addProductToCart')
+const getRandomAction = require('./actions')
 
-roam()
-  .then(addProductToCart)
-  .then(() => {
-    console.log('finished')
+const runRandomAction = () => {
+  const action = getRandomAction()
 
-    nightmare.end().then()
-  })
-  .catch(error => {
-    console.log(error)
+  console.log('running', action.name)
 
-    nightmare.end().then()
-  })
+  action.function()
+    .then(runRandomAction)
+}
+
+runRandomAction()
