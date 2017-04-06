@@ -34,7 +34,6 @@ const addProductToCart = () =>
       return nightmare
         .goto(url)
         .wait('#quantity')
-        .type('#quantity', 1 + Math.floor(5 * Math.random()))
         .click('#add-to-cart-button')
         .then(() => Promise.resolve())
     })
