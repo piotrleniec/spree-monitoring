@@ -35,9 +35,9 @@ const addProductToCart = () =>
         .goto(url)
         .wait('#quantity')
         .click('#add-to-cart-button')
+        .wait(500)
         .then(() => Promise.resolve())
     })
-
 addProductToCart()
   .then(addProductToCart)
   .then(() => {
